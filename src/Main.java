@@ -1,8 +1,6 @@
-
-
 public class Main {
+    public static Employee[] members = new Employee[10];
     public static void main( String[] args ) {
-        Employee[] members = new Employee[10];
         members[0] = new Employee("Горошина Евгения Константиновна", 1, 40000, 1);
         members[1] = new Employee("Глебов Алексей Иванович", 2, 30000, 2);
         members[2] = new Employee("Иванова Таисия Михайловна", 3, 20000, 3);
@@ -13,23 +11,20 @@ public class Main {
         members[7] = new Employee("Павлов Кирилл Данилович", 3, 25000, 8);
         members[8] = new Employee("Данилова Екатерина Сергеевна", 4, 90_000, 9);
         members[9] = new Employee("Ильин Сергей Петрович", 5, 32000, 10);
-
-        getAllInfo(members);
-        System.out.println("Сумма Затрат на зарплаты в месяц составляет: " + getSummarySalary(members));
-        System.out.println("Минимальная зарплата за текущий месяц составляет: " + getMinSalary(members));
-        System.out.println("Максимальная зарплата за текущий месяц составляет: " + getMaxSalary(members));
-        System.out.println("Средняя зарплата за месяц составляет: " + getAverageSalary(members));
-        System.out.println("ФИО всех сотрудников:\n" + getAllFio(members));
+          Main.getAllInfo(members);
+          System.out.println("Сумма Затрат на зарплаты в месяц составляет: " + Main.getSummarySalary(members));
+          System.out.println("Минимальная зарплата за текущий месяц составляет: " + Main.getMinSalary(members));
+          System.out.println("Максимальная зарплата за текущий месяц составляет: " + getMaxSalary(members));
+          System.out.println("Средняя зарплата за месяц составляет: " + Main.getAverageSalary(members));
+          System.out.println("ФИО всех сотрудников:\n" + Main.getAllFio(members));
     }
-
-
-    public static void getAllInfo(Employee[] members){
-        for (Employee member : members) {
-            System.out.println(member);
-            System.out.println("==========================");
-        }
-    }
-    public static int getSummarySalary(Employee[] members){
+   public static void getAllInfo(Employee[] members){
+       for (Employee member : members) {
+           System.out.println(member);
+           System.out.println("==========================");
+       }
+   }
+   public static int getSummarySalary(Employee[] members){
         int sum = 0;
         for (Employee member : members) {
             sum += member.getSalary();
@@ -65,6 +60,7 @@ public class Main {
         for (Employee employee: members) {
             string.append(employee.getFio()).append("\n");
         }
- return String.valueOf(string);
+        return String.valueOf(string);
     }
-    }
+
+}
