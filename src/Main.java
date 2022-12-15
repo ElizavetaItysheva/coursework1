@@ -11,57 +11,49 @@ public class Main {
         members[7] = new Employee("Павлов Кирилл Данилович", 3, 25000, 8);
         members[8] = new Employee("Данилова Екатерина Сергеевна", 4, 90_000, 9);
         members[9] = new Employee("Ильин Сергей Петрович", 5, 32000, 10);
-          Main.getAllInfo(members);
-          System.out.println("Сумма Затрат на зарплаты в месяц составляет: " + Main.getSummarySalary(members));
-          System.out.println("Сотрудник с минимальной зарплатой - " + Main.getMinSalary(members));
-          System.out.println("Сотрудник с максимальной зарплатой - " + Main.getMaxSalary(members));
-          System.out.println("Средняя зарплата за месяц составляет: " + Main.getAverageSalary(members));
-          System.out.println("ФИО всех сотрудников:\n" + Main.getAllFio(members));
+          Main.getAllInfo();
+          System.out.println("Сумма Затрат на зарплаты в месяц составляет: " + Main.getSummarySalary());
+          System.out.println("Сотрудник с минимальной зарплатой - " + Main.getMinSalary());
+          System.out.println("Сотрудник с максимальной зарплатой - " + Main.getMaxSalary());
+          System.out.println("Средняя зарплата за месяц составляет: " + Main.getAverageSalary());
+          System.out.println("ФИО всех сотрудников:\n" + Main.getAllFio());
     }
-   public static void getAllInfo(Employee[] members){ // а
+   public static void getAllInfo(){ // а
        for (Employee member : members) {
            System.out.println(member);
            System.out.println("==========================");
        }
    }
-   public static int getSummarySalary(Employee[] members){ // b
+   public static int getSummarySalary(){ // b
         int sum = 0;
         for (Employee member : members) {
             sum += member.getSalary();
         }
         return sum;
     }
-    public static String getMinSalary(Employee[] members){ // с
-        Employee[] employee = members;
-        int min = members[0].getSalary();
-        String string = "";
+    public static Employee getMinSalary(){ // с
+        Employee min = members[0];
         for (Employee member : members) {
-            if (members[0].getSalary() > member.getSalary()) {
-                employee[0] = member;
-            } else {
-                employee[0] = members[0];
+            if (member.getSalary() < min.getSalary()) {
+                min = member;
             }
         }
-        return String.valueOf(employee[0].getFio());
+        return min;
     }
-    public static String getMaxSalary(Employee[] members){ // d
-        Employee[] employee = members;
-        int max = members[0].getSalary();
-        String string = "";
+    public static Employee getMaxSalary(){ // d
+        Employee max = members[0];
         for (Employee member : members) {
-            if (members[0].getSalary() < member.getSalary()) {
-                employee[0] = member;
-            } else {
-                employee[0] = members[0];
+            if (member.getSalary() > max.getSalary()) {
+                max = member;
             }
         }
-        return String.valueOf(employee[0].getFio());
+        return max;
     }
-    public static int getAverageSalary(Employee[] members){ // e
-        int max1 =  getSummarySalary(members);
+    public static int getAverageSalary(){ // e
+        int max1 =  getSummarySalary();
         return max1 / 10;
     }
-    public static String getAllFio(Employee[] members){ // f
+    public static String getAllFio(){ // f
         StringBuilder string = new StringBuilder();
         for (Employee employee: members) {
             string.append(employee.getFio()).append("\n");
