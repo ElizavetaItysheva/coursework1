@@ -40,6 +40,7 @@ public class Main {
         }
         return min;
     }
+
     public static Employee getMaxSalary(){ // d
         Employee max = members[0];
         for (Employee member : members) {
